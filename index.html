@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open USA Bank Account</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      background: #fff;
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .hidden { display: none; }
+    #timer {
+      text-align: center;
+      font-size: 20px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+<div class="container" id="page1">
+  <h2>Open a U.S. Bank Account</h2>
+  <label>First Name</label>
+  <input type="text" id="firstName">
+
+  <label>Email</label>
+  <input type="email" id="email">
+
+  <label>Phone</label>
+  <input type="tel" id="phone">
+
+  <label>Address</label>
+  <input type="text" id="address">
+
+  <label>Social Security Number (SSN)</label>
+  <input type="text" id="ssn">
+
+  <label>Headquarter Generated Token ID</label>
+  <input type="text" id="token">
+
+  <button onclick="validateToken()">Submit</button>
+</div>
+
+<div class="container hidden" id="page2">
+  <h2>Register Your Device</h2>
+  <label>IP Address</label>
+  <input type="text" id="ip">
+
+  <label>Device Type</label>
+  <select id="device">
+    <option value="">Select</option>
+    <option value="Laptop">Laptop</option>
+    <option value="Desktop">Desktop</option>
+    <option value="Mobile">Mobile</option>
+  </select>
+
+  <label>Give a Name to This Network</label>
+  <input type="text" id="networkName">
+
+  <button onclick="goToPage3()">Submit</button>
+</div>
+
+<div class="container hidden" id="page3">
+  <h2>Choose Your Account Details</h2>
+  <label>Select Account Number</label>
+  <select id="accountNumber">
+    <option>084267390275</option>
+    <option>192384750283</option>
+    <option>472839102938</option>
+    <option>385920174820</option>
+  </select>
+
+  <label>Account Type</label>
+  <select id="accountType">
+    <option value="Saving">Saving</option>
+    <option value="Checking">Checking</option>
+  </select>
+
+  <button onclick="goToPage4()">Submit</button>
+</div>
+
+<div class="container hidden" id="page4">
+  <h2>Identity Verification</h2>
+  <label>Upload Front Side of ID</label>
+  <input type="file">
+
+  <label>Upload Back Side of ID</label>
+  <input type="file">
+
+  <button onclick="startTimer()">Submit</button>
+</div>
+
+<div class="container hidden" id="loading">
+  <h2>Hold on, we're analyzing your documents and details</h2>
+  <div id="timer">2:00</div>
+</div>
+
+<div class="container hidden" id="deposit">
+  <h2>How Do You Want to Deposit?</h2>
+  <select>
+    <option>UPS</option>
+    <option>Cash Deposit at Headquarters</option>
+    <option>Cash Deposit from Doorstep</option>
+    <option>BTC</option>
+    <option>Wire</option>
+  </select>
+  <button onclick="finish()">Submit</button>
+</div>
+
+<div class="container hidden" id="thanks">
+  <h2>Thank you for your submission</h2>
+  <p>We'll reach you soon over the call regarding the updates.</p>
+</div>
+
+<script>
+  function validateToken() {
+    const token = document.getElementById('token').value;
+    if (token === 'af78gy890') {
+      document.getElementById('page1').classList.add('hidden');
+      document.getElementById('page2').classList.remove('hidden');
+    } else {
+      alert('Invalid Token ID. Access denied.');
+    }
+  }
+
+  function goToPage3() {
+    document.getElementById('page2').classList.add('hidden');
+    document.getElementById('page3').classList.remove('hidden');
+  }
+
+  function goToPage4() {
+    document.getElementById('page3').classList.add('hidden');
+    document.getElementById('page4').classList.remove('hidden');
+  }
+
+  function startTimer() {
+    document.getElementById('page4').classList.add('hidden');
+    document.getElementById('loading').classList.remove('hidden');
+    let seconds = 120;
+    const timer = setInterval(() => {
+      const min = Math.floor(seconds / 60);
+      const sec = seconds % 60;
+      document.getElementById('timer').innerText = `${min}:${sec < 10 ? '0' + sec : sec}`;
+      seconds--;
+      if (seconds < 0) {
+        clearInterval(timer);
+        document.getElementById('loading').classList.add('hidden');
+        document.getElementById('deposit').classList.remove('hidden');
+      }
+    }, 1000);
+  }
+
+  function finish() {
+    document.getElementById('deposit').classList.add('hidden');
+    document.getElementById('thanks').classList.remove('hidden');
+  }
+</script>
+</body>
+</html>
